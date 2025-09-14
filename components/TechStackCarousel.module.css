@@ -1,0 +1,206 @@
+/* components/TechStackCarousel.module.css */
+
+.techSection {
+  padding: 80px 0;
+  background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
+  overflow: hidden;
+  position: relative;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+/* Section Header */
+.sectionHeader {
+  text-align: center;
+  margin-bottom: 60px;
+}
+
+.title {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: #1e293b;
+  margin-bottom: 16px;
+}
+
+.subtitle {
+  font-size: 1.1rem;
+  color: #64748b;
+  max-width: 600px;
+  margin: 0 auto;
+  line-height: 1.6;
+}
+
+/* Carousel Container */
+.carouselContainer {
+  margin: 40px 0;
+  mask: linear-gradient(to right, transparent, white 20%, white 80%, transparent);
+  -webkit-mask: linear-gradient(to right, transparent, white 20%, white 80%, transparent);
+}
+
+.carousel {
+  display: flex;
+  width: fit-content;
+  animation: scroll 40s linear infinite;
+}
+
+.carousel.reverse {
+  animation: scrollReverse 35s linear infinite;
+}
+
+/* Pause animation on hover (optional) */
+.carousel:hover {
+  animation-play-state: paused;
+}
+
+.logoTrack {
+  display: flex;
+  align-items: center;
+  gap: 60px;
+  padding: 20px 0;
+}
+.logoImage {
+  width: 60px;
+  height: 60px;
+  transition: transform 0.3s ease, filter 0.3s ease;
+}
+
+.logoItem:hover .logoImage {
+  transform: scale(1.3); /* Zoom effect */
+  filter: drop-shadow(0 0 10px rgba(0,0,0,0.3)); /* Glow effect */
+}
+
+.logoName {
+  display: block;
+  margin-top: 8px;
+  font-size: 14px;
+  font-weight: 500;
+  text-align: center;
+}
+
+
+.logoItem:hover .logoImage {
+  filter: grayscale(0%);
+  opacity: 1;
+}
+
+.logoName {
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: #475569;
+  text-align: center;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.logoItem:hover .logoName {
+  opacity: 1;
+}
+
+/* Animations */
+@keyframes scroll {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+@keyframes scrollReverse {
+  0% {
+    transform: translateX(-50%);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+
+/* Mobile Responsive */
+@media (max-width: 768px) {
+  .title {
+    font-size: 2rem;
+  }
+
+  .subtitle {
+    font-size: 1rem;
+  }
+
+  .logoTrack {
+    gap: 40px;
+  }
+
+  .logoImage {
+    width: 50px;
+    height: 50px;
+  }
+
+  .logoItem {
+    min-width: 80px;
+  }
+
+  .carousel {
+    animation-duration: 25s;
+  }
+
+  .carousel.reverse {
+    animation-duration: 20s;
+  }
+}
+
+@media (max-width: 480px) {
+  .logoTrack {
+    gap: 30px;
+  }
+
+  .logoImage {
+    width: 40px;
+    height: 40px;
+  }
+
+  .logoItem {
+    min-width: 60px;
+  }
+
+  .logoName {
+    font-size: 0.8rem;
+  }
+}
+
+/* Optional: Gradient overlay for better fade effect */
+.techSection::before,
+.techSection::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  width: 100px;
+  height: 100%;
+  pointer-events: none;
+  z-index: 2;
+}
+
+.techSection::before {
+  left: 0;
+  background: linear-gradient(to right, #f8fafc, transparent);
+}
+
+.techSection::after {
+  right: 0;
+  background: linear-gradient(to left, #f8fafc, transparent);
+}
+
+/* Custom speeds for different rows */
+.carousel:nth-child(1) {
+  animation-duration: 40s;
+}
+
+.carousel:nth-child(2) {
+  animation-duration: 45s;
+}
+
+.carousel:nth-child(3) {
+  animation-duration: 35s;
+}
