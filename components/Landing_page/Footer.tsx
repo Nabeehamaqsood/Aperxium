@@ -4,6 +4,7 @@ import { Button } from "@/components/ui/button"
 import React from "react"
 import { Facebook, Instagram, Linkedin, Phone, Mail, MapPin, Clock } from "lucide-react"
 import Link from "next/link"
+import { FaWhatsapp } from "react-icons/fa"
 
 export default function Footer() {
   return (
@@ -32,7 +33,7 @@ export default function Footer() {
       target="_blank" 
       rel="noopener noreferrer"
     >
-      <Phone className="w-6 h-6 text-white hover:text-green-500 transition" />
+      <FaWhatsapp className="w-6 h-6 text-white hover:text-green-500 transition" />
     </Link>
 
     {/* Facebook */}
@@ -71,43 +72,43 @@ export default function Footer() {
   </div>
 </div>
 
-        {/* ✅ CLOSED THIS DIV */}
-          {/* Services */}
-          <div>
-            <h4 className="text-lg font-semibold mb-4">Services</h4>
-            <ul className="space-y-2 text-gray-400">
-              <li>
-                <a href="/services/mobile-development" className="hover:text-purple-400 transition-colors">
-                  Mobile App Development
-                </a>
-              </li>
-              <li>
-                <a href="/services/web-development" className="hover:text-purple-400 transition-colors">
-                  Website Development
-                </a>
-              </li>
-              <li>
-                <a href="/services/generative-ai" className="hover:text-purple-400 transition-colors">
-                  AI Automation
-                </a>
-              </li>
-              <li>
-                <a href="/services/digital-services" className="hover:text-purple-400 transition-colors">
-                  Digital Marketing
-                </a>
-              </li>
-              <li>
-                <span className="hover:text-purple-400 transition-colors cursor-pointer">
-                  Graphic Designing
-                </span>
-              </li>
-              <li>
-                <span className="hover:text-purple-400 transition-colors cursor-pointer">
-                  UI/UX Designing
-                </span>
-              </li>
-            </ul>
-          </div>
+      {/* Services */}
+      <div>
+        <h4 className="text-lg font-semibold mb-4">Services</h4>
+        <ul className="space-y-2 text-gray-400">
+          <li>
+            <a href="/services/mobile-development" className="hover:text-purple-400 transition-colors">
+              Mobile Development
+            </a>
+          </li>
+          <li>
+            <a href="/services/web-development" className="hover:text-purple-400 transition-colors">
+              Web Development
+            </a>
+          </li>
+          <li>
+            <a href="/services/ai-automation" className="hover:text-purple-400 transition-colors">
+              AI Automation
+            </a>
+          </li>
+          <li>
+            <a href="/services/digital-services" className="hover:text-purple-400 transition-colors">
+              Digital Marketing
+            </a>
+          </li>
+          <li>
+            <a href="/services/graphic-designing" className="hover:text-purple-400 transition-colors">
+              Graphic Designing
+            </a>
+          </li>
+          <li>
+            <a href="/services/UIUX" className="hover:text-purple-400 transition-colors">
+              UI/UX Designing
+            </a>
+          </li>
+        </ul>
+      </div>
+
 
 
           {/* Support */}
