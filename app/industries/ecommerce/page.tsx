@@ -187,12 +187,6 @@ export default function EcommercePage() {
             >
               Start Now
             </button>
-            <Link
-              href="/schedule-meeting"
-              className="bg-[#3db1a2] text-white font-semibold py-3 px-8 rounded-full text-center hover:bg-[#2e8f7f] transition-colors"
-            >
-              Schedule a Meeting
-            </Link>
           </div>
         </div>
       </section>
