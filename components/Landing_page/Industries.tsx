@@ -37,20 +37,7 @@ export default function Industries() {
                 <p className="text-gray-700 text-base">{industry.description}</p>
               </div>
 
-              {/* Hover Overlay */}
-              <div className="absolute inset-0 bg-[#3db1a2]/90 opacity-0 group-hover:opacity-100 transition-all duration-300 flex items-center justify-center">
-                <div className="text-center text-white transform translate-y-4 group-hover:translate-y-0 transition-transform duration-300">
-                  <h3 className="text-3xl font-bold mb-3">{industry.title}</h3>
-                  <p className="mb-4 text-lg">{industry.description}</p>
-                  <Button
-                    size="lg"
-                    variant="outline"
-                    className="border-white text-white hover:bg-white hover:text-[#3db1a2] bg-transparent"
-                  >
-                    Learn More
-                  </Button>
-                </div>
-              </div>
+            
             </div>
           ))}
         </div>

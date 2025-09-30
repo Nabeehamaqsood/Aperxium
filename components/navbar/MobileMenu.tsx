@@ -14,9 +14,17 @@ interface MobileMenuProps {
     items: { name: string; href: string }[]
   }[]
   logo: React.ReactNode
+  children?: React.ReactNode // ✅ allow custom items (like Home)
 }
 
-export function MobileMenu({ isOpen, onClose, onGetStartedClick, sections, logo }: MobileMenuProps) {
+export function MobileMenu({
+  isOpen,
+  onClose,
+  onGetStartedClick,
+  sections,
+  logo,
+  children, // ✅ receive Home
+}: MobileMenuProps) {
   return (
     <AnimatePresence>
       {isOpen && (
@@ -46,7 +54,10 @@ export function MobileMenu({ isOpen, onClose, onGetStartedClick, sections, logo 
                 </button>
               </div>
 
-              <div className="space-y-4">
+              <div className="space-y-0"> {/* Changed from space-y-4 to space-y-0 */}
+                {/* ✅ Home will render here - EXACTLY SAME STYLING AS ACCORDION ITEMS */}
+                {children}
+
                 {sections.map((section) => (
                   <AccordionSection
                     key={section.title}

@@ -46,7 +46,7 @@ As AI continues to evolve, its impact on the IT industry will become even more s
       id: 2,
       title: "The World of Web Development: Trends, Tools, and Best Practices",
       date: "September 5, 2025",
-      image: "/images/2.jpg",
+      image: "/images/world.jpg",
       category: "Web Development / Technology",
       excerpt: "Web development is a dynamic and ever-evolving field that requires a combination of technical skills, creativity, and problem-solving abilities...",
       content: `Web development is a dynamic and ever-evolving field that requires a combination of technical skills, creativity, and problem-solving abilities. From building simple websites to complex web applications, web developers play a crucial role in shaping the digital landscape.
@@ -82,7 +82,7 @@ Best Practices:
       id: 3,
       title: "The World of App Development: Trends, Tools, and Best Practices",
       date: "September 7, 2025",
-      image: "/images/3.jpg",
+      image: "/images/wor.jpg",
       category: "App Development / Mobile",
       excerpt: "Mobile app development has become a crucial aspect of modern business, with millions of apps available across various platforms...",
       content: `Mobile app development has become a crucial aspect of modern business, with millions of apps available across various platforms. From simple utility apps to complex enterprise solutions, app development requires a combination of technical expertise, creativity, and problem-solving skills.

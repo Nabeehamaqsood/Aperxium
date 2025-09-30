@@ -18,7 +18,7 @@ export default function TeamPage() {
       image: "images/Sha.jpg",
     },
     {
-      name: "Muhammad Waled",
+      name: "Waleed Zahoor",
       role: "Graphic Designer",
       image: "images/Waleed.jpg",
     },

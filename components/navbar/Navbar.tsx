@@ -3,6 +3,7 @@ import { useState, useEffect } from "react"
 import { Menu, X, Phone, Mail, Clock } from "lucide-react"
 import { DesktopDropdown } from "./DesktopDropdown"
 import { MobileMenu } from "./MobileMenu"
+import { usePathname } from "next/navigation"
 
 const services = [
   { name: "Mobile Development", href: "/services/mobile-development" },
@@ -32,6 +33,7 @@ const about = [
 export default function Navbar({ onGetStartedClick }: { onGetStartedClick?: () => void }) {
   const [isScrolled, setIsScrolled] = useState(false)
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
+  const pathname = usePathname()
 
   useEffect(() => {
     const handleScroll = () => setIsScrolled(window.scrollY > 10)
@@ -39,17 +41,22 @@ export default function Navbar({ onGetStartedClick }: { onGetStartedClick?: () =
     return () => window.removeEventListener("scroll", handleScroll)
   }, [])
 
+  // No Home inside sections
   const sections = [
+    { title: "About", items: about },
     { title: "Services", items: services },
     { title: "Industries", items: industries },
-    { title: "About", items: about },
-    { title: "More", items: [
+    {
+      title: "More",
+      items: [
         { name: "Blog", href: "/blog" },
         { name: "Projects", href: "/projects" },
         { name: "Contact", href: "/contact" },
-      ]
-    }
+      ],
+    },
   ]
+
+  const isHomePage = pathname === "/"
 
   return (
     <>
@@ -67,7 +74,7 @@ export default function Navbar({ onGetStartedClick }: { onGetStartedClick?: () =
             </div>
             <div className="flex items-center space-x-2">
               <Mail className="w-4 h-4" />
-              <span>apexium.space@gmail.com</span>
+              <span>apexiumtechnologies@gmail.com</span>
             </div>
             <div className="flex items-center space-x-2">
               <Clock className="w-4 h-4" />
@@ -97,12 +104,49 @@ export default function Navbar({ onGetStartedClick }: { onGetStartedClick?: () =
 
           {/* Desktop Menu */}
           <div className="hidden lg:flex space-x-8">
+            <a
+              href="/"
+              className={`font-medium transition-colors ${
+                isHomePage
+                  ? "text-[#3db1a2] font-bold"
+                  : "text-gray-800 hover:text-[#3db1a2]"
+              }`}
+            >
+              Home
+            </a>
             <DesktopDropdown title="About" items={about} basePath="/about" />
             <DesktopDropdown title="Services" items={services} basePath="/services" />
             <DesktopDropdown title="Industries" items={industries} basePath="/industries" />
-            <a href="/blog" className="text-gray-800 hover:text-[#3db1a2] font-medium">Blog</a>
-            <a href="/projects" className="text-gray-800 hover:text-[#3db1a2] font-medium">Projects</a>
-            <a href="/contact" className="text-gray-800 hover:text-[#3db1a2] font-medium">Contact</a>
+            <a
+              href="/blog"
+              className={`font-medium transition-colors ${
+                pathname === "/blog"
+                  ? "text-[#3db1a2] font-bold"
+                  : "text-gray-800 hover:text-[#3db1a2]"
+              }`}
+            >
+              Blog
+            </a>
+            <a
+              href="/projects"
+              className={`font-medium transition-colors ${
+                pathname === "/projects"
+                  ? "text-[#3db1a2] font-bold"
+                  : "text-gray-800 hover:text-[#3db1a2]"
+              }`}
+            >
+              Projects
+            </a>
+            <a
+              href="/contact"
+              className={`font-medium transition-colors ${
+                pathname === "/contact"
+                  ? "text-[#3db1a2] font-bold"
+                  : "text-gray-800 hover:text-[#3db1a2]"
+              }`}
+            >
+              Contact
+            </a>
           </div>
 
           {/* Mobile Menu Button */}
@@ -110,9 +154,11 @@ export default function Navbar({ onGetStartedClick }: { onGetStartedClick?: () =
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
             className="lg:hidden text-gray-800 hover:text-[#3db1a2] transition-colors"
           >
-            {isMobileMenuOpen 
-              ? <X className="w-7 h-7 text-black" /> 
-              : <Menu className="w-7 h-7 text-black" />}
+            {isMobileMenuOpen ? (
+              <X className="w-7 h-7 text-black" />
+            ) : (
+              <Menu className="w-7 h-7 text-black" />
+            )}
           </button>
         </div>
       </nav>
@@ -135,7 +181,23 @@ export default function Navbar({ onGetStartedClick }: { onGetStartedClick?: () =
             />
           </a>
         }
-      />
+        currentPath={pathname}
+      >
+      {/* ✅ Home styled EXACTLY like accordion items */}
+<div className="border-b border-gray-200">
+  <a
+    href="/"
+    className={`font-medium transition-colors py-3 px-4 block w-full text-left text-base ${
+      pathname === "/"
+        ? "text-[#3db1a2] font-bold"
+        : "text-gray-800 hover:text-[#3db1a2]"
+    }`}
+    onClick={() => setIsMobileMenuOpen(false)}
+  >
+    Home
+  </a>
+</div>
+      </MobileMenu>
     </>
   )
 }

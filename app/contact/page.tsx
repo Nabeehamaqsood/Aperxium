@@ -30,7 +30,7 @@ export default function ContactPage() {
       const body = encodeURIComponent(`Name: ${formData.name}\nService: ${formData.service}\nMessage: ${formData.message}`);
       
       // Open default email client
-      window.location.href = `mailto:apexium.space@gmail.com?subject=${subject}&body=${body}`;
+      window.location.href = `mailto:apexiumtechnologies@gmail.com?subject=${subject}&body=${body}`;
       
       setIsSubmitted(true)
       setFormData({ name: "", service: "", message: "" })
@@ -58,7 +58,7 @@ export default function ContactPage() {
     {
       icon: <Mail className="w-6 h-6" />,
       title: "Email Us",
-      value: "apexium.space@gmail.com",
+      value: "apexiumtechnologies@gmail.com",
       description: "Send us an email anytime"
     },
     {
